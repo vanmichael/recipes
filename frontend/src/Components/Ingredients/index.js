@@ -5,7 +5,7 @@ import ListItemText from "@material-ui/core/ListItemText"
 
 function Ingredients({ title = 'Ingredients needed', ingredients }) {
     return (
-        <div>
+        <>
             {ingredients && (
             <List>
                 <h3>{title}</h3>
@@ -16,7 +16,7 @@ function Ingredients({ title = 'Ingredients needed', ingredients }) {
                 ))}
             </List>
             )}
-        </div>
+        </>
     )
 }
 

@@ -23,10 +23,6 @@ export const createAndConnectToServer = async (): Promise<typeof mongoose> => {
     keepAlive: true,
     connectTimeoutMS: 30000,
   })
-  mongoose.set('debug', true);
-  mongoose.set("debug", (collectionName, method, query, doc) => {
-    console.log(`${collectionName}.${method}`, JSON.stringify(query), doc);
-  });
   // add default recipes
   await createRecipes()
   return connection
