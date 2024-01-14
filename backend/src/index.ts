@@ -11,6 +11,7 @@ const appStartup = async (): Promise<void> => {
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: false }))
   // create our routes
+  app.get("/api/recipe/:id", recipeMiddleware)
   app.post("/api/search", searchMiddleware)
   // create a server
   const httpServer = new http.Server(app)

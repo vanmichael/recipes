@@ -24,6 +24,7 @@ module.exports = {
     plugins: [PnpWebpackPlugin.moduleLoader(module)],
   },
   output: {
+    publicPath: '/',
     path: buildDir,
     filename: "[name].bundle.js",
   },
@@ -38,12 +39,18 @@ module.exports = {
           target: "es2018",
         },
       },
+      {
+        test: /\.js$/,
+        include: /node_modules\/react-dom/,
+        use: ['react-hot-loader/webpack']
+      },
     ],
   },
   devServer: {
     port: 3000,
     contentBase: staticDir,
     publicPath: "/",
+    historyApiFallback: true,
     filename: "[name].bundle.js",
     proxy: {
       "/api/**": {

@@ -4,10 +4,11 @@ import { Ingredient, IngredientSchema } from "./ingredient"
 export interface Recipe extends Document {
   name: string
   instructions: string
-  ingredients: Ingredient[]
+  ingredients: Ingredient[] | string[]
 }
 
 const RecipeSchema = new Schema({
+  _id: Schema.Types.ObjectId,
   name: {
     type: String,
     required: true,
